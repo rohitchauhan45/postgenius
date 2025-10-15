@@ -14,8 +14,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #171717;
   }
 }
 
@@ -23,4 +23,28 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes travelLineLeft {
+  0% { stroke-dashoffset: 300; opacity: 1; }
+  30% { stroke-dashoffset: -300; opacity: 1; }
+  30.01% { opacity: 0; }
+  100% { stroke-dashoffset: 300; opacity: 0; }
+}
+
+@keyframes travelLineRight {
+  0% { stroke-dashoffset: 400; opacity: 1; }
+  40% { stroke-dashoffset: -400; opacity: 1; }
+  40.01% { opacity: 0; }
+  100% { stroke-dashoffset: 400; opacity: 0; }
+}
+
+.animated-line-left {
+  stroke-dasharray: 80 1000;
+  animation: travelLineLeft 3s linear infinite;
+}
+
+.animated-line-right {
+  stroke-dasharray: 80 1000;
+  animation: travelLineRight 3s linear 0.2s infinite;
 }
