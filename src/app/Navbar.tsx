@@ -28,7 +28,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="flex items-center justify-between px-4 sm:px-6 lg:px-14 py-4 bg-white shadow-sm">
+    <nav className="relative flex items-center justify-between px-4 sm:px-6 lg:px-14 py-4 bg-white shadow-sm">
       {/* Left side - Logo */}
       <div className="flex items-center">
         <h1 
@@ -96,43 +96,63 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-white shadow-lg border-t z-50 md:hidden">
-          <div className="px-4 py-4 space-y-4">
-            <a 
-              href="#home" 
-              className="block text-gray-700 text-lg font-serif hover:text-purple-600 transition-colors cursor-pointer"
-              onClick={(e) => handleClick(e, 'home')}
-            > 
-              Home 
-            </a>
-            <a 
-              href="#about" 
-              className="block text-gray-700 text-lg font-serif hover:text-purple-600 transition-colors cursor-pointer"
-              onClick={(e) => handleClick(e, 'about')}
-            >
-              About Us
-            </a>
-            <a 
-              href="#contact" 
-              className="block text-gray-700 text-lg font-serif hover:text-purple-600 transition-colors cursor-pointer"
-              onClick={(e) => handleClick(e, 'contact')}
-            >
-              Contact Us
-            </a>
-            <a 
-              href="#how-it-works" 
-              className="block text-gray-700 text-lg font-serif hover:text-purple-600 transition-colors cursor-pointer"
-              onClick={(e) => handleClick(e, 'how-it-works')}
-            >
-              How It Works
-            </a>
-            <div className="pt-4 border-t">
-              <button className="w-full bg-purple-600 text-white px-4 py-3 rounded-md hover:bg-purple-700 transition-colors font-semibold text-base">
-                Login
+        <>
+          {/* Blur Background Overlay */}
+          <div 
+            className="fixed inset-0 backdrop-blur-sm z-[9998] md:hidden"
+            onClick={() => setIsMenuOpen(false)}
+          ></div>
+          
+          {/* Mobile Menu */}
+          <div className="absolute top-full left-0 right-0 bg-white shadow-lg border-t z-[9999] md:hidden">
+            {/* Close Button */}
+            <div className="flex justify-end p-4 pb-2">
+              <button
+                onClick={() => setIsMenuOpen(false)}
+                className="text-gray-500 hover:text-gray-700 transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
               </button>
             </div>
+            <div className="px-4 pb-4 space-y-4 text-center">
+              <a 
+                href="#home" 
+                className="block text-gray-700 text-lg font-serif hover:text-purple-600 transition-colors cursor-pointer py-2"
+                onClick={(e) => handleClick(e, 'home')}
+              > 
+                Home 
+              </a>
+              <a 
+                href="#about" 
+                className="block text-gray-700 text-lg font-serif hover:text-purple-600 transition-colors cursor-pointer py-2"
+                onClick={(e) => handleClick(e, 'about')}
+              >
+                About Us
+              </a>
+              <a 
+                href="#contact" 
+                className="block text-gray-700 text-lg font-serif hover:text-purple-600 transition-colors cursor-pointer py-2"
+                onClick={(e) => handleClick(e, 'contact')}
+              >
+                Contact Us
+              </a>
+              <a 
+                href="#how-it-works" 
+                className="block text-gray-700 text-lg font-serif hover:text-purple-600 transition-colors cursor-pointer py-2"
+                onClick={(e) => handleClick(e, 'how-it-works')}
+              >
+                How It Works
+              </a>
+              <div className="pt-4 border-t">
+                <button className="w-full bg-purple-600 text-white px-4 py-3 rounded-md hover:bg-purple-700 transition-colors font-semibold text-base">
+                  Login
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
+        </>
       )}
     </nav>
   );
