@@ -1,16 +1,22 @@
+import AnimatedSection from './components/AnimatedSection';
+import StaggeredAnimation from './components/StaggeredAnimation';
+import TextLineAnimation from './components/TextLineAnimation';
+
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        <StaggeredAnimation staggerDelay={100} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           
-          {/* Postgenius Brand Section */}
+          {/* Postgenious Brand Section */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <h3 className="text-xl sm:text-2xl font-bold text-purple-400 mb-3 sm:mb-4">Postgenius</h3>
-            <p className="text-gray-300 text-sm sm:text-sm leading-6 sm:leading-7 mb-4 sm:mb-6">
-              Transform your ideas into engaging posts with AI-powered precision. 
-              Create amazing content effortlessly.
-            </p>
+            <h3 className="text-xl sm:text-2xl font-bold text-purple-400 mb-3 sm:mb-4">Postgenious</h3>
+            <TextLineAnimation 
+              text="Transform your ideas into engaging posts with AI-powered precision. Create amazing content effortlessly."
+              className="text-gray-300 text-sm sm:text-sm leading-6 sm:leading-7 mb-4 sm:mb-6"
+              lineDelay={120}
+              splitBy="sentences"
+            />
           </div>
 
           {/* Quick Links */}
@@ -82,27 +88,29 @@ export default function Footer() {
               </div>
             </div>
           </div>
-        </div>
+        </StaggeredAnimation>
 
         {/* Bottom Border */}
-        <div className="border-t border-gray-700 mt-8 sm:mt-12 pt-6 sm:pt-8">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div className="text-gray-400 text-xs sm:text-sm text-center sm:text-left">
-              © 2024 Postgenius. All rights reserved.
-            </div>
-            <div className="flex items-center space-x-4 sm:space-x-6">
-              <a href="#privacy" className="text-gray-400 hover:text-purple-400 transition-colors text-xs sm:text-sm">
-                Privacy
-              </a>
-              <a href="#terms" className="text-gray-400 hover:text-purple-400 transition-colors text-xs sm:text-sm">
-                Terms
-              </a>
-              <a href="#cookies" className="text-gray-400 hover:text-purple-400 transition-colors text-xs sm:text-sm">
-                Cookies
-              </a>
+        <AnimatedSection delay={300}>
+          <div className="border-t border-gray-700 mt-8 sm:mt-12 pt-6 sm:pt-8">
+            <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+              <div className="text-gray-400 text-xs sm:text-sm text-center sm:text-left">
+                © 2024 Postgenious. All rights reserved.
+              </div>
+              <div className="flex items-center space-x-4 sm:space-x-6">
+                <a href="#privacy" className="text-gray-400 hover:text-purple-400 transition-colors text-xs sm:text-sm">
+                  Privacy
+                </a>
+                <a href="#terms" className="text-gray-400 hover:text-purple-400 transition-colors text-xs sm:text-sm">
+                  Terms
+                </a>
+                <a href="#cookies" className="text-gray-400 hover:text-purple-400 transition-colors text-xs sm:text-sm">
+                  Cookies
+                </a>
+              </div>
             </div>
           </div>
-        </div>
+        </AnimatedSection>
       </div>
     </footer>
   );

@@ -9,7 +9,7 @@ export default function Navbar() {
     const element = document.getElementById(sectionId);
     if (element) {
       try {
-        element.scrollIntoView({ 
+        element.scrollIntoView({
           behavior: 'smooth',
           block: 'start',
           inline: 'nearest'
@@ -28,52 +28,60 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="relative flex items-center justify-between px-4 sm:px-6 lg:px-14 py-4 bg-white shadow-sm">
+    <nav className="relative flex items-center justify-between px-4 sm:px-6 lg:px-18 py-4 bg-white shadow-sm">
       {/* Left side - Logo */}
       <div className="flex items-center">
-        <h1 
-          className="text-xl sm:text-2xl font-bold text-purple-600 font-sans tracking-wide cursor-pointer" 
+        <h1
+          className="text-xl sm:text-2xl font-bold text-purple-500 font-sans tracking-wide cursor-pointer"
           onClick={() => scrollToSection('home')}
         >
-          Postgenius
+          Postgenious
         </h1>
       </div>
 
       {/* Desktop Navigation */}
-      <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
-        <a 
-          href="#home" 
-          className="text-gray-700 text-base lg:text-lg font-serif hover:text-purple-600 transition-colors cursor-pointer"
+      <div className="hidden md:flex items-center space-x-6 lg:space-x-10">
+        <a
+          href="#home"
+          className="text-gray-700 text-base lg:text-lg font-sans hover:text-purple-600 transition-colors cursor-pointer"
           onClick={(e) => handleClick(e, 'home')}
-        > 
-          Home 
+        >
+          Home
         </a>
-        <a 
-          href="#about" 
-          className="text-gray-700 text-base lg:text-lg font-serif hover:text-purple-600 transition-colors cursor-pointer"
+        <a
+          href="#about"
+          className="text-gray-700 text-base lg:text-lg font-sans hover:text-purple-600 transition-colors cursor-pointer"
           onClick={(e) => handleClick(e, 'about')}
         >
           About Us
         </a>
-        <a 
-          href="#contact" 
-          className="text-gray-700 text-base lg:text-lg font-serif hover:text-purple-600 transition-colors cursor-pointer"
+        <a
+          href="#platforms"
+          className="text-gray-700 text-base lg:text-lg font-sans hover:text-purple-600 transition-colors cursor-pointer"
+          onClick={(e) => handleClick(e, 'platforms')}
+        >
+          Platforms
+        </a>
+        <a
+          href="#contact"
+          className="text-gray-700 text-base lg:text-lg font-sans hover:text-purple-600 transition-colors cursor-pointer"
           onClick={(e) => handleClick(e, 'contact')}
         >
           Contact Us
         </a>
-        <a 
-          href="#how-it-works" 
-          className="text-gray-700 text-base lg:text-lg font-serif hover:text-purple-600 transition-colors cursor-pointer"
+        <a
+          href="#how-it-works"
+          className="text-gray-700 text-base lg:text-lg font-sans hover:text-purple-600 transition-colors cursor-pointer"
           onClick={(e) => handleClick(e, 'how-it-works')}
         >
           How It Works
         </a>
+        
       </div>
 
       {/* Desktop Actions */}
       <div className="hidden md:flex items-center space-x-4">
-        <button className="bg-purple-600 text-white px-3 lg:px-4 py-2 rounded-md hover:bg-purple-700 transition-colors font-semibold text-sm lg:text-base">
+        <button className="bg-pink-600 text-white px-3 lg:px-4 py-2 rounded-md hover:bg-pink-700 transition-colors font-semibold text-sm lg:text-base">
           Login
         </button>
       </div>
@@ -98,11 +106,11 @@ export default function Navbar() {
       {isMenuOpen && (
         <>
           {/* Blur Background Overlay */}
-          <div 
+          <div
             className="fixed inset-0 backdrop-blur-sm z-[9998] md:hidden"
             onClick={() => setIsMenuOpen(false)}
           ></div>
-          
+
           {/* Mobile Menu */}
           <div className="absolute top-full left-0 right-0 bg-white shadow-lg border-t z-[9999] md:hidden">
             {/* Close Button */}
@@ -117,36 +125,44 @@ export default function Navbar() {
               </button>
             </div>
             <div className="px-4 pb-4 space-y-4 text-center">
-              <a 
-                href="#home" 
-                className="block text-gray-700 text-lg font-serif hover:text-purple-600 transition-colors cursor-pointer py-2"
+              <a
+                href="#home"
+                className="block text-gray-700 text-lg font-sans hover:text-purple-600 transition-colors cursor-pointer py-2"
                 onClick={(e) => handleClick(e, 'home')}
-              > 
-                Home 
+              >
+                Home
               </a>
-              <a 
-                href="#about" 
-                className="block text-gray-700 text-lg font-serif hover:text-purple-600 transition-colors cursor-pointer py-2"
+              <a
+                href="#about"
+                className="block text-gray-700 text-lg font-sans hover:text-purple-600 transition-colors cursor-pointer py-2"
                 onClick={(e) => handleClick(e, 'about')}
               >
                 About Us
               </a>
-              <a 
-                href="#contact" 
-                className="block text-gray-700 text-lg font-serif hover:text-purple-600 transition-colors cursor-pointer py-2"
+              <a
+                href="#platforms"
+                className="block text-gray-700 text-lg font-sans hover:text-purple-600 transition-colors cursor-pointer py-2"
+                onClick={(e) => handleClick(e, 'platforms')}
+              >
+                Platforms
+              </a>
+              <a
+                href="#contact"
+                className="block text-gray-700 text-lg font-sans hover:text-purple-600 transition-colors cursor-pointer py-2"
                 onClick={(e) => handleClick(e, 'contact')}
               >
                 Contact Us
               </a>
-              <a 
-                href="#how-it-works" 
-                className="block text-gray-700 text-lg font-serif hover:text-purple-600 transition-colors cursor-pointer py-2"
+              <a
+                href="#how-it-works"
+                className="block text-gray-700 text-lg font-sans hover:text-purple-600 transition-colors cursor-pointer py-2"
                 onClick={(e) => handleClick(e, 'how-it-works')}
               >
                 How It Works
               </a>
+
               <div className="pt-4 border-t">
-                <button className="w-full bg-purple-600 text-white px-4 py-3 rounded-md hover:bg-purple-700 transition-colors font-semibold text-base">
+                <button className="w-full bg-pink-600 text-white px-4 py-3 rounded-md hover:bg-pink-700 transition-colors font-semibold text-base">
                   Login
                 </button>
               </div>
